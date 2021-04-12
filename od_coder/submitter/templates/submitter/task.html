@@ -1,0 +1,126 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+       <meta charset="UTF-8">
+       <link href="https://rawgithub.com/jasonm23/markdown-css-themes/gh-pages/markdown7.css" rel="stylesheet"></link>
+   </head>
+    <body>
+        <div id="container">
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+        <script>
+					var md = marked("{{ task.task_text }}");
+           $("#container").append(md);
+       </script>
+    </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ソースコード提出用ページ_sample</title>
+	<style>
+		body {
+			background: rgb(70,71,117);
+			font-family: "sans-serif";
+			font-weight:600;
+			color: #e3f2fd;
+		}
+		#app {
+			width:50%;
+			height:50%;
+			padding: 28px;
+			line-height: 1.5;
+			border: 1px solid #ffffff;
+			border-radius: 5px;
+			background-color: transparent;
+			box-shadow: 2px 2px 4px 0px rgba(200,200,200,1);
+			text-align: center;
+			position: absolute;
+			left: 25%;
+			top: 25%;
+			animation: anime 0.5s ease;
+		}
+
+		.text {
+			transform: translate(-50%, -250%);
+			font-size:130%;
+		}
+		@keyframes anime {
+		    0% {
+		        opacity:  0.0;
+		        top: 28%;
+		    }
+		    100% {
+		        opacity:  1.0;
+		        top: 25%;
+		    }
+		}
+
+		.center {
+			text-align: center;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+
+		label {
+			background: #000;
+			color: #fff;
+			cursor: pointer;
+			padding: 20px 40px;
+			margin: 0 10px 0 0;
+			display: inline-block;
+			transform: translate(-50%, -130%);
+			box-shadow: 2px 2px 4px 0px rgba(70,71,117,1);
+			border-radius: 5px;
+		}
+		input[type="file"] {
+		    display: none;
+		}
+		label:hover {
+		    opacity:  0.7;
+		}
+		#upload_state{
+			transform: translate(-50%, -120%);
+		}
+
+		#upload_button {
+			border-radius: 5px;
+			transform: translate(-50%, 50%);
+			top:70%;
+			background: #000;
+			color: #fff;
+			cursor: pointer;
+			padding: 3% 6%;
+			margin: 0 10px 0 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+	<a class="text center">ソースコードをアップロードしてください。</a>
+	<label for="sample1" class="center">
+	   ファイルを選択
+	   <input type="file" id="sample1" size="30">
+	</label>
+	<p class="center" id="upload_state">選択されていません</p>
+	<button type="button" id="upload_button" class="center">アップロード</button>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script type="text/javascript">
+		$('input').on('change', function () {
+	    var file = $(this).prop('files')[0];
+	    $('p').text(file.name);
+	});
+	</script>
+	</div>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p> OdCoder 課題提出フォーム </p>
+    <p> Hello {{ user.get_username }} </p>
+
+		<style>
+		.result-disable {
+			color: gray;
+		}
+		.result-ac {
+			color: green;
+		}
+		.result-notsubmitted {
+			color: brown;
+		}
+		</style>
+			
+		{% for t in tasks %}
+		{{ t.result }}
+			{% if t.result == DISABLE %}
+			<li class="result-disable"> 
+			{% elif t.result == AC %}
+			<li class="result-ac"> 
+			{% elif t.result == NOTSUBMITTED %}
+			<li class="result-notsubmitted">
+			{% else %}
+			unknown
+			{% endif %}
+			<a href="{% url 'submitter:task' t.task.id %}">{{ t.task }}</a></li>
+		{% endfor %}
+	
+		<br>
+		<br>
+		<br>
+
+    <!--========== ここから以下を変更 =========== -->
+    <a class="nav-link" href="{% url 'accounts:logout' %}">
+    <!--========== ここまでの変更 =========== -->
+    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+  </body>
+</html>
